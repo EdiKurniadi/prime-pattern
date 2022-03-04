@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: monospace, sans-serif;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		canvas {
+			/*border: 1px solid magenta;*/
+			float: right;
+			/*width: 84vw;*/
+			display: block;
+			background: black;
+			margin: auto;
+			/*margin-top: 25px;*/
+		}
+
+		#form {
+			float: left;
+			display: block;
+			width: 13vw;
+			height: 100vh;
+			margin: auto 1em;
+			margin-right: 0;
+			font-size: 1.2rem;
+			/*border: 1px solid magenta;*/
+		}
+
+		label {
+			display: inline-block;
+			margin-top: 1em;
+		}
+
+		input[type="number"],
+		input[type="text"] {
+			font-size: 1.2rem;
+			width: 100%;
+		}
+
+		#draw {
+			display: block;
+			margin: auto;
+			margin-top: 1em;
+			padding: .25em 2em;
+			font-size: 1.2rem;
+		}
+
+		#rotate-canvas {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			display: block;
+			margin: auto;
+			margin-top: 1em;
+			padding: .25em 2em;
+			font-size: 1.2rem;
+		}
+
+		#radio {
+			display: inline-block;
+		}
+
+		.radio{
+			display: inline;
+			font-size: 18px;
+			font-weight: 500;
+			/*color: #fff;*/
+			padding-right: 7px;
+			padding-bottom: 7px;
+		}
+
+		input[type="radio"] {
+			display: inline-block;
+			margin-right: 7px;
+		}
+
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<div id="form">
+		<label id="begin-number-label" for="beginNumber" ><span>Begin Number: </span><br>
+			<input id="beginNumber" type="number" value="1" required tabindex="-1"><br>
+		</label>
+		<label id="stop-number-label" for="stopNumber"><span>Stop Number: </span><br>
+			<input id="stopNumber" type="number" value="19000" required tabindex="-1"><br>
+		</label>
+		<label id="size-label" for="size"><span>Size: </span><br>
+			<input id="size" type="number" value="1" required tabindex="-1"><br>
+		</label>
+		<label id="scale-label" for="scale"><span>Scale: </span><br>
+			<input id="scale" type="number" value="10" required tabindex="-1"><br>
+		</label>
+		<label id="color-label" for="color"><span>Color: </span><br>
+			<input id="color" type="text" value="#fff" required tabindex="-1"><br>
+		</label>
+		<button id='draw' onclick=draw() tabindex="-1">Draw</button>
+		<label id="radio"><span>Type of draw?</span><br>
+			<label class="radio" for="r1"><input id="r1" type="radio" name="info-type-draw" value="circle" checked tabindex="-1">circle</label><br>
+			<label class="radio" for="r2"><input id="r2" type="radio" name="info-type-draw" value="square" tabindex="-1">square</label><br>
+			<label class="radio" for="r3"><input id="r3" type="radio" name="info-type-draw" value="line" tabindex="-1">line</label><br>
+		<label><span>Mode direction?</span><br>
+			<label class="radio" for="rb1"><input id="rb1" type="radio" name="info-direction" value="4" checked tabindex="-1">4</label><br>
+			<label class="radio" for="rb2"><input id="rb2" type="radio" name="info-direction" value="8" tabindex="-1">8</label><br>
+		</label><br>
+		<label id="checkbox"><span>Animate? </span><input id="c1" type="checkbox" tabindex="-1"></label><br>
+		<button id="rotate-canvas" onclick=rotateCanvas() tabindex="-1">Rotate</button>
+	</div>
+	<script src="basic_search.js"></script>
+</body>
+</html>
